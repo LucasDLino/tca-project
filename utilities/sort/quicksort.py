@@ -2,6 +2,9 @@ import time
 
 
 def quicksort(numbers):
+    # Ordered list
+    ordered_list = []
+
     # Insert timer to check time of sort algorithm
     start_time = time.time()
 
@@ -13,5 +16,4 @@ def quicksort(numbers):
     # Compute elapsed time
     elapsed_time = end_time - start_time
 
-    print(f"Execution time: {elapsed_time} seconds")
-    return elapsed_time
+    return ordered_list, elapsed_time
