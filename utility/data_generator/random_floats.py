@@ -3,13 +3,13 @@ from ..data_generator.random_floats_type import RandomFloatsType
 
 
 def generate_random_floats(n):
-    numbers = [random.uniform(-1000000, 1000000) for _ in range(n)]
+    numbers = [round(random.uniform(-1000000, 1000000), 2) for _ in range(n)]
 
     return numbers
 
 
 def generate_random_with_repeated_floats(n):
-    random_numbers = [random.uniform(-1000000, 1000000) for _ in range(n)]
+    random_numbers = [round(random.uniform(-1000000, 1000000), 2) for _ in range(n)]
 
     numbers = []
 
@@ -20,7 +20,7 @@ def generate_random_with_repeated_floats(n):
 
 
 def generate_random_ordered_floats(n):
-    numbers = [random.uniform(-1000000, 1000000) for _ in range(n)]
+    numbers = [round(random.uniform(-1000000, 1000000), 2) for _ in range(n)]
 
     numbers.sort()
 
@@ -28,7 +28,7 @@ def generate_random_ordered_floats(n):
 
 
 def generate_random_reversed_ordered_floats(n):
-    numbers = [random.uniform(-1000000, 1000000) for _ in range(n)]
+    numbers = [round(random.uniform(-1000000, 1000000), 2) for _ in range(n)]
 
     numbers.sort(reverse=True)
 

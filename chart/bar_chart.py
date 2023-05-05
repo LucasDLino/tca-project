@@ -16,6 +16,10 @@ def add_data_to_bar_chart(n, elapsed_time, data_type):
     # Add data to figure
     ax.bar(data_type, elapsed_time, width=0.8, label=get_type_name(data_type))
 
+    # Annotate above the bar
+    ax.annotate(f"t = {elapsed_time:.3f}s", (data_type, elapsed_time), xytext=(data_type, elapsed_time), textcoords='data',
+                ha='center', va='bottom', fontsize=8)
+
     # Add title and axis names
     ax.set_title('Quicksort Algorithm - n = ' + str(n) + ' numbers')
 

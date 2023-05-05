@@ -5,17 +5,20 @@ from chart.chart_factory import *
 
 
 def run_selection(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_gen_numbers=False):
+                  file=None, running_all=False, write_numbers_list=False):
     return
 
 
 def run_mergesort(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_gen_numbers=False):
+                  file=None, running_all=False, write_numbers_list=False):
     return
 
 
 def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_gen_numbers=False):
+                  file=None, running_all=False, write_numbers_list=False):
+    # TODO: Remove - Print test
+    print("Running quicksort for data type: " + get_type_name(data_type) + " - n = " + str(n) + " numbers")
+
     # Date of generation
     generate_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
@@ -33,14 +36,14 @@ def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, tes
     write_repeated = True if data_type == 1 else False
 
     # Write numbers to file
-    if write_gen_numbers:
+    if write_numbers_list:
         write_numbers(file, numbers, write_repeated)
 
     # Use quicksort algorithm to sort list of numbers
     ordered_numbers, elapsed_time = quicksort(numbers)
 
     # Write results to file
-    write_results(file, elapsed_time)
+    write_results(file, elapsed_time, ordered_numbers, write_numbers_list)
 
     # Generate chart if not running all tests
     if generate_chart and running_all is False:
@@ -61,7 +64,7 @@ def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, tes
     return ordered_numbers, elapsed_time
 
 
-def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, write_gen_numbers=False):
+def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, write_numbers_list=False):
     # List of pair (ordered_numbers, elapsed_time)
     results = []
 
@@ -78,7 +81,7 @@ def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, w
     for data_type in range(0, 4):
         # Run quicksort algorithm for each data type
         ordered_number, elapsed_time = run_quicksort(n, data_type, generate_chart, generate_file, "TEST " + str(data_type) + " - Quicksort",
-                                                     ChartType.BAR, file, True, write_gen_numbers)
+                                                     ChartType.BAR, file, True, write_numbers_list)
 
         # Add pair (ordered_numbers, elapsed_time) to results
         results.append((ordered_number, elapsed_time))
@@ -93,7 +96,7 @@ def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, w
     return results
 
 
-def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=False, write_gen_numbers=False):
+def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=False, write_numbers_list=False):
     # List of pair (ordered_numbers, elapsed_time)
     results = []
 
@@ -113,7 +116,7 @@ def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=Fa
     for i, quantity in enumerate(n):
         # Run quicksort algorithm for each quantity of numbers
         ordered_number, elapsed_time = run_quicksort(quantity, data_type, generate_chart, generate_file, "TEST " + str(i) + " - Quicksort",
-                                                     ChartType.SCATTER, file, True, write_gen_numbers)
+                                                     ChartType.SCATTER, file, True, write_numbers_list)
 
         # Add pair (ordered_numbers, elapsed_time) to results
         results.append((ordered_number, elapsed_time))
@@ -125,7 +128,9 @@ def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=Fa
 
         not_show_legend_to_scatter_chart()
 
-        set_ticks_scientific_limits_to_scatter_chart(3)
+        # set_ticks_scientific_limits_to_scatter_chart(3)
+
+        add_line_to_scatter_chart()
 
         # Show scatter chart
         show_scatter_chart()
@@ -138,10 +143,10 @@ def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=Fa
 
 
 def run_insertion(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_gen_numbers=False):
+                  file=None, running_all=False, write_numbers_list=False):
     return
 
 
 def run_all_sort(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                 file=None, running_all=False, write_gen_numbers=False):
+                 file=None, running_all=False, write_numbers_list=False):
     return

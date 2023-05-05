@@ -35,6 +35,9 @@ def write_numbers(file, numbers, write_repeated=False):
             file.write("Repeated numbers: " + str([item for item in numbers if numbers.count(item) > 1]) + "\n\n")
 
 
-def write_results(file, elapsed_time):
+def write_results(file, elapsed_time, ordered_numbers, write_numbers_list=False):
     if file is not None:
+        if write_numbers_list:
+            file.write("Ordered numbers: " + str(ordered_numbers) + "\n\n\n")
+
         file.write("Execution time: " + str(elapsed_time) + " seconds\n\n\n")

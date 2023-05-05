@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from utility.data_generator.random_floats_type import get_type_name
+import random
 
 
 def create_scatter_chart():
@@ -13,8 +14,16 @@ def add_data_to_scatter_chart(n, elapsed_time, data_type):
     # Get current figure and axis
     fig, ax = plt.gcf(), plt.gca()
 
+    markers = ["o", "v", "^", "<", ">", "s", "p", "*", "h", "H", "D"]
+
     # Add data to figure
-    ax.plot(n, elapsed_time, 'o', markersize=4, label=get_type_name(data_type))
+    ax.plot(n, elapsed_time, marker=random.choice(markers), markersize=7, label=get_type_name(data_type))
+
+    # Show text for this point
+    ax.annotate(f"t = {elapsed_time:.3f}s", (n, elapsed_time), xytext=(n, elapsed_time), textcoords='data', ha='left', va='bottom', fontsize=8)
+
+    # Scale x axis to log
+    ax.set_xscale('log')
 
     # Add title and axis names
     ax.set_title('Quicksort Algorithm - n = ' + str(n) + ' numbers')
@@ -25,6 +34,26 @@ def add_data_to_scatter_chart(n, elapsed_time, data_type):
     ax.legend()
 
     return fig
+
+
+def add_line_to_scatter_chart():
+    # Get current figure and axis
+    fig, ax = plt.gcf(), plt.gca()
+
+    # Get all plotted lines in the current axis
+    lines = ax.get_lines()
+
+    # Get all x and y data points for the plotted lines
+    x_data, y_data = [], []
+    for line in lines:
+        x_data.extend(line.get_xdata())
+        y_data.extend(line.get_ydata())
+
+    # Add a line connecting all data points
+    ax.plot(x_data, y_data, linestyle='--', color='gray')
+
+    # Show the plot
+    plt.show()
 
 
 def set_title_to_scatter_chart(title):
