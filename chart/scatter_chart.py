@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from utilities.data_generator.random_floats_type import get_type_name
+from utility.data_generator.random_floats_type import get_type_name
 
 
 def create_scatter_chart():

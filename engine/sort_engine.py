@@ -1,7 +1,7 @@
-from utilities.data_generator.random_floats import generate_numbers
-from utilities.sort.quicksort import quicksort
-from charts.scatter_chart import *
-from utilities.writer.sort_results_writer_txt import *
+from utility.data_generator.random_floats import generate_numbers
+from utility.sort.quicksort import quicksort
+from chart.scatter_chart import *
+from utility.writer.sort_results_writer_txt import *
 
 
 def run_selection(n, data_type=0, generate_chart=False, generate_file=False, test_name=""):
