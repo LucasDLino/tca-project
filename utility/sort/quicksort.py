@@ -14,6 +14,8 @@ def quicksort(numbers):
         # Raise alert
         print("RecursionError: maximum recursion depth exceeded while calling a Python object", "\n")
 
+        # TODO: Possible solutions: 1 - Allow deeper recursion; 2 - Choose middle or even random pivot point;
+
         return [], 0
 
         # End timer

@@ -1,6 +1,7 @@
 import os
 from datetime import datetime
 from ..data_generator.random_floats_type import get_type_name
+from collections import Counter
 
 
 def create_file(n, data_type):
@@ -27,12 +28,30 @@ def write_title(file, test_name, n, data_type, date):
             + " - Generated at: " + date + " --- ###\n\n")
 
 
-def write_numbers(file, numbers, write_repeated=False):
+def write_numbers(file, numbers, write_numbers_list=False, write_repeated=False):
     if file is not None:
-        file.write("Numbers: " + str(numbers) + "\n\n")
 
+        # List of repeated numbers
+        repeated = []
         if write_repeated:
-            file.write("Repeated numbers: " + str([item for item in numbers if numbers.count(item) > 1]) + "\n\n")
+            # Count the occurrences of each number
+            counts = Counter(numbers)
+
+            # Write repeated numbers to file
+            repeated = [num for num, count in counts.items() if count > 1]
+
+        if write_numbers_list:
+            # Write numbers to file
+            file.write("Numbers: " + str(numbers) + "\n\n")
+
+            if write_repeated:
+                file.write("Repeated numbers: " + str(repeated) + "\n\n")
+        else:
+            # Write just the quantity of numbers
+            file.write("Numbers: List of numbers has been omitted. It contains " + str(len(numbers)) + " numbers.\n\n")
+
+            if write_repeated:
+                file.write("Repeated numbers: List of repeated numbers has been omitted. It contains " + str(len(repeated)) + " numbers.\n\n")
 
 
 def write_results(file, elapsed_time, ordered_numbers, write_numbers_list=False):

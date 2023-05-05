@@ -36,8 +36,7 @@ def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, tes
     write_repeated = True if data_type == 1 else False
 
     # Write numbers to file
-    if write_numbers_list:
-        write_numbers(file, numbers, write_repeated)
+    write_numbers(file, numbers, write_numbers_list, write_repeated)
 
     # Use quicksort algorithm to sort list of numbers
     ordered_numbers, elapsed_time = quicksort(numbers)
