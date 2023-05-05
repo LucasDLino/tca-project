@@ -14,7 +14,7 @@ def add_data_to_bar_chart(n, elapsed_time, data_type):
     fig, ax = plt.gcf(), plt.gca()
 
     # Add data to figure
-    ax.bar(data_type, elapsed_time + 12, width=0.8, label=get_type_name(data_type))
+    ax.bar(data_type, elapsed_time, width=0.8, label=get_type_name(data_type))
 
     # Add title and axis names
     ax.set_title('Quicksort Algorithm - n = ' + str(n) + ' numbers')
