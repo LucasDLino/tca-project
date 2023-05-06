@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-from utility.data_generator.random_floats_type import get_type_name
+from utility.data_generator.random_floats_type import get_random_float_type_name
 import random
 
 
@@ -17,7 +17,7 @@ def add_data_to_scatter_chart(n, elapsed_time, data_type):
     markers = ["o", "v", "^", "<", ">", "s", "p", "*", "h", "H", "D"]
 
     # Add data to figure
-    ax.plot(n, elapsed_time, marker=random.choice(markers), markersize=7, label=get_type_name(data_type))
+    ax.plot(n, elapsed_time, marker=random.choice(markers), markersize=7, label=get_random_float_type_name(data_type))
 
     # Show text for this point
     ax.annotate(f"t = {elapsed_time:.3f}s", (n, elapsed_time), xytext=(n, elapsed_time), textcoords='data', ha='left', va='bottom', fontsize=8)

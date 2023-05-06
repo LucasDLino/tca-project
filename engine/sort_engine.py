@@ -1,23 +1,32 @@
 from utility.data_generator.random_floats import generate_numbers
 from utility.sort.quicksort import quicksort
+from utility.sort.selection import selection
+from utility.sort.insertion import insertion
+from utility.sort.mergesort import mergesort
 from utility.writer.sort_results_writer_txt import *
 from chart.chart_factory import *
+from utility.sort.sort_type import *
 
 
-def run_selection(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_numbers_list=False):
-    return
+def get_sort_algorithm(sort_type):
+    if sort_type == SortType.SELECTION:
+        return selection
+    elif sort_type == SortType.MERGESORT:
+        return mergesort
+    elif sort_type == SortType.QUICKSORT:
+        return quicksort
+    elif sort_type == SortType.INSERTION:
+        return insertion
 
 
-def run_mergesort(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_numbers_list=False):
-    return
-
-
-def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_numbers_list=False):
+def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
+                       file=None, running_all=False, write_numbers_list=False):
     # TODO: Remove - Print test
-    print("Running quicksort for data type: " + get_type_name(data_type) + " - n = " + str(n) + " numbers")
+    print("Running " + get_sort_type_name(sort_type) + " algorithm for data type: " + get_random_float_type_name(data_type)
+          + " - n = " + str(n) + " numbers")
+
+    # Getting sort algorithm
+    sort_algorithm = get_sort_algorithm(sort_type)
 
     # Date of generation
     generate_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -38,8 +47,8 @@ def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, tes
     # Write numbers to file
     write_numbers(file, numbers, write_numbers_list, write_repeated)
 
-    # Use quicksort algorithm to sort list of numbers
-    ordered_numbers, elapsed_time = quicksort(numbers)
+    # Use selected sort algorithm to sort list of numbers
+    ordered_numbers, elapsed_time = sort_algorithm(numbers)
 
     # Write results to file
     write_results(file, elapsed_time, ordered_numbers, write_numbers_list)
@@ -63,7 +72,7 @@ def run_quicksort(n, data_type=0, generate_chart=False, generate_file=False, tes
     return ordered_numbers, elapsed_time
 
 
-def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, write_numbers_list=False):
+def run_all_data_types(sort_type, n, generate_chart=False, generate_file=False, write_numbers_list=False):
     # List of pair (ordered_numbers, elapsed_time)
     results = []
 
@@ -76,11 +85,14 @@ def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, w
     if generate_chart:
         create_bar_chart()
 
+    # Name of sort algorithm
+    sort_name = get_sort_type_name(sort_type)
+
     # Loop through data types (0 = Random, 1 = Random with repeated, 2 = Ascending, 3 = Descending)
     for data_type in range(0, 4):
-        # Run quicksort algorithm for each data type
-        ordered_number, elapsed_time = run_quicksort(n, data_type, generate_chart, generate_file, "TEST " + str(data_type) + " - Quicksort",
-                                                     ChartType.BAR, file, True, write_numbers_list)
+        # Run sort algorithm for each data type
+        ordered_number, elapsed_time = run_sort_algorithm(sort_type, n, data_type, generate_chart, generate_file,
+                                                          "TEST " + str(data_type) + " - " + sort_name, ChartType.BAR, file, True, write_numbers_list)
 
         # Add pair (ordered_numbers, elapsed_time) to results
         results.append((ordered_number, elapsed_time))
@@ -95,7 +107,7 @@ def run_quicksort_all_data_types(n, generate_chart=False, generate_file=False, w
     return results
 
 
-def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=False, write_numbers_list=False):
+def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=False, write_numbers_list=False):
     # List of pair (ordered_numbers, elapsed_time)
     results = []
 
@@ -111,18 +123,21 @@ def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=Fa
     # List of quantity of numbers
     n = [100, 1000, 10000, 100000, 1000000]
 
+    # Name of sort algorithm
+    sort_name = get_sort_type_name(sort_type)
+
     # Loop through quantity of numbers
     for i, quantity in enumerate(n):
-        # Run quicksort algorithm for each quantity of numbers
-        ordered_number, elapsed_time = run_quicksort(quantity, data_type, generate_chart, generate_file, "TEST " + str(i) + " - Quicksort",
-                                                     ChartType.SCATTER, file, True, write_numbers_list)
+        # Run sort algorithm for each quantity of numbers
+        ordered_number, elapsed_time = run_sort_algorithm(sort_type, quantity, data_type, generate_chart, generate_file,
+                                                          "TEST " + str(i) + " - " + sort_name, ChartType.SCATTER, file, True, write_numbers_list)
 
         # Add pair (ordered_numbers, elapsed_time) to results
         results.append((ordered_number, elapsed_time))
 
     if generate_chart:
         # Corrections chart
-        title = "Quicksort - " + get_type_name(data_type) + " - All quantity of numbers"
+        title = sort_name + " - " + get_random_float_type_name(data_type) + " - All quantity of numbers"
         set_title_to_scatter_chart(title)
 
         not_show_legend_to_scatter_chart()
@@ -141,11 +156,5 @@ def run_quicksort_all_quantity(data_type, generate_chart=False, generate_file=Fa
     return results
 
 
-def run_insertion(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                  file=None, running_all=False, write_numbers_list=False):
-    return
-
-
-def run_all_sort(n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                 file=None, running_all=False, write_numbers_list=False):
+def run_all_algorithms(data_type, generate_chart=False, generate_file=False, write_numbers_list=False):
     return

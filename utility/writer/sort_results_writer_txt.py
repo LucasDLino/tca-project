@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-from ..data_generator.random_floats_type import get_type_name
+from ..data_generator.random_floats_type import get_random_float_type_name
 from collections import Counter
 
 
@@ -24,7 +24,7 @@ def create_file(n, data_type):
 def write_title(file, test_name, n, data_type, date):
     if file is not None:
         file.write(
-            "### --- " + test_name + " --- " + str(n) + " numbers - Data Type: " + get_type_name(data_type)
+            "### --- " + test_name + " --- " + str(n) + " numbers - Data Type: " + get_random_float_type_name(data_type)
             + " - Generated at: " + date + " --- ###\n\n")
 
 

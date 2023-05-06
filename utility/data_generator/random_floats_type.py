@@ -6,7 +6,7 @@ class RandomFloatsType:
     RANDOM_REVERSED_ORDERED = 3
 
 
-def get_type_name(data_type):
+def get_random_float_type_name(data_type):
     if data_type == RandomFloatsType.RANDOM:
         return "Random"
     elif data_type == RandomFloatsType.RANDOM_WITH_REPEATED:
