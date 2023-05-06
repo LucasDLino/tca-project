@@ -4,6 +4,13 @@ from utility.data_generator.random_floats_type import RandomFloatsType as dataTy
 
 
 def main():
+    # ------- Uncomment the tests you want to run -------
+
+    # quicksort_tests()
+    insertion_tests()
+
+
+def quicksort_tests():
     # TESTS - Run quicksort for 100000 numbers - All data types
     sort_engine.run_all_data_types(SortType.QUICKSORT, 100000, generate_chart=True, generate_file=True, write_numbers_list=False)
 
@@ -16,6 +23,12 @@ def main():
 
     # TESTS - Run selection for all quantity of numbers - Random data type
     sort_engine.run_all_sizes(SortType.SELECTION, data_type=dataType.RANDOM, generate_chart=True, generate_file=True, write_numbers_list=False)
+
+
+def insertion_tests():
+    # TESTS - Run insertion for 100000 numbers - All data types
+    sort_engine.run_all_data_types(SortType.INSERTION, 10000, generate_chart=True, generate_file=True, write_numbers_list=False,
+                                   check_is_sorted=True)
 
 
 if __name__ == '__main__':

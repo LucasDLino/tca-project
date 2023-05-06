@@ -54,6 +54,11 @@ def write_numbers(file, numbers, write_numbers_list=False, write_repeated=False)
                 file.write("Repeated numbers: List of repeated numbers has been omitted. It contains " + str(len(repeated)) + " numbers.\n\n")
 
 
+def write_is_sorted(file, is_sorted):
+    if file is not None:
+        file.write("Algorithm successfully sorted the list of numbers.\n\n" if is_sorted else "Algorithm failed to sort the list of numbers.\n\n")
+
+
 def write_results(file, elapsed_time, ordered_numbers, write_numbers_list=False):
     if file is not None:
         if write_numbers_list:

@@ -26,4 +26,22 @@ def insertion(numbers):
 
 
 def insertion_implementation(numbers):
-    return
+    # Length of numbers list
+    length = len(numbers)
+
+    # Put -inf in the first position of numbers list
+    numbers.insert(0, float("-inf"))
+
+    # Iterate through numbers list
+    for i in range(1, length + 1):
+        v = numbers[i]
+        j = i
+
+        while j > 0 and numbers[j - 1] > v:
+            numbers[j] = numbers[j - 1]
+            j = j - 1
+
+        numbers[j] = v
+
+    # Remove -inf from numbers list
+    numbers.pop(0)

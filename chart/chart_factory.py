@@ -10,13 +10,13 @@ def create_chart():
     return fig, ax
 
 
-def add_data_to_chart(chart_type, n, elapsed_time, data_type):
+def add_data_to_chart(chart_type, n, elapsed_time, data_type, sort_name):
     if chart_type == ChartType.SCATTER:
-        return add_data_to_scatter_chart(n, elapsed_time, data_type)
+        return add_data_to_scatter_chart(n, elapsed_time, data_type, sort_name)
     elif chart_type == ChartType.BAR:
-        return add_data_to_bar_chart(n, elapsed_time, data_type)
+        return add_data_to_bar_chart(n, elapsed_time, data_type, sort_name)
     else:
-        return add_data_to_scatter_chart(n, elapsed_time, data_type)
+        return add_data_to_scatter_chart(n, elapsed_time, data_type, sort_name)
 
 
 def show_chart():

@@ -9,7 +9,7 @@ def create_bar_chart():
     return fig, ax
 
 
-def add_data_to_bar_chart(n, elapsed_time, data_type):
+def add_data_to_bar_chart(n, elapsed_time, data_type, sort_name):
     # Get current figure and axis
     fig, ax = plt.gcf(), plt.gca()
 
@@ -21,7 +21,7 @@ def add_data_to_bar_chart(n, elapsed_time, data_type):
                 ha='center', va='bottom', fontsize=8)
 
     # Add title and axis names
-    ax.set_title('Quicksort Algorithm - n = ' + str(n) + ' numbers')
+    ax.set_title(sort_name + ' Algorithm - n = ' + str(n) + ' numbers')
 
     ax.set_xlabel('Type of Numbers')
     ax.set_ylabel('Time (seconds)')
@@ -60,12 +60,12 @@ def show_bar_chart():
     return
 
 
-def generate_bar_chart(n, data_type, elapsed_time):
+def generate_bar_chart(n, data_type, elapsed_time, sort_name):
     # Create figure
     create_bar_chart()
 
     # Add data to figure
-    add_data_to_bar_chart(n, elapsed_time, data_type)
+    add_data_to_bar_chart(n, elapsed_time, data_type, sort_name)
 
     # Show figure
     show_bar_chart()

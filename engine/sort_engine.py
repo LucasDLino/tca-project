@@ -8,6 +8,14 @@ from chart.chart_factory import *
 from utility.sort.sort_type import *
 
 
+def is_sorted(numbers):
+    for i in range(0, len(numbers) - 1):
+        if numbers[i] > numbers[i + 1]:
+            return False
+
+    return True
+
+
 def get_sort_algorithm(sort_type):
     if sort_type == SortType.SELECTION:
         return selection
@@ -20,13 +28,16 @@ def get_sort_algorithm(sort_type):
 
 
 def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                       file=None, running_all=False, write_numbers_list=False):
-    # TODO: Remove - Print test
-    print("Running " + get_sort_type_name(sort_type) + " algorithm for data type: " + get_random_float_type_name(data_type)
-          + " - n = " + str(n) + " numbers")
-
+                       file=None, running_all=False, write_numbers_list=False, check_is_sorted=False):
     # Getting sort algorithm
     sort_algorithm = get_sort_algorithm(sort_type)
+
+    # Sort algorithm name
+    sort_name = get_sort_type_name(sort_type)
+
+    # TODO: Remove - Print test
+    print("Running " + sort_name + " algorithm for data type: " + get_random_float_type_name(data_type)
+          + " - n = " + str(n) + " numbers")
 
     # Date of generation
     generate_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -50,6 +61,13 @@ def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate
     # Use selected sort algorithm to sort list of numbers
     ordered_numbers, elapsed_time = sort_algorithm(numbers)
 
+    # Check if list is sorted
+    if check_is_sorted:
+        check_sorted = is_sorted(ordered_numbers)
+        print("Algorithm was successful!" if check_sorted else "Algorithm failed :(", "\n\n")
+
+        write_is_sorted(file, check_sorted)
+
     # Write results to file
     write_results(file, elapsed_time, ordered_numbers, write_numbers_list)
 
@@ -59,7 +77,7 @@ def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate
 
     # Add data to chart
     if generate_chart:
-        add_data_to_chart(chart_type, n, elapsed_time, data_type)
+        add_data_to_chart(chart_type, n, elapsed_time, data_type, sort_name)
 
     # Show chart if not running all tests
     if generate_chart and running_all is False:
@@ -72,7 +90,7 @@ def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate
     return ordered_numbers, elapsed_time
 
 
-def run_all_data_types(sort_type, n, generate_chart=False, generate_file=False, write_numbers_list=False):
+def run_all_data_types(sort_type, n, generate_chart=False, generate_file=False, write_numbers_list=False, check_is_sorted=False):
     # List of pair (ordered_numbers, elapsed_time)
     results = []
 
@@ -92,7 +110,8 @@ def run_all_data_types(sort_type, n, generate_chart=False, generate_file=False, 
     for data_type in range(0, 4):
         # Run sort algorithm for each data type
         ordered_number, elapsed_time = run_sort_algorithm(sort_type, n, data_type, generate_chart, generate_file,
-                                                          "TEST " + str(data_type) + " - " + sort_name, ChartType.BAR, file, True, write_numbers_list)
+                                                          "TEST " + str(data_type) + " - " + sort_name,
+                                                          ChartType.BAR, file, True, write_numbers_list, check_is_sorted)
 
         # Add pair (ordered_numbers, elapsed_time) to results
         results.append((ordered_number, elapsed_time))
@@ -107,7 +126,7 @@ def run_all_data_types(sort_type, n, generate_chart=False, generate_file=False, 
     return results
 
 
-def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=False, write_numbers_list=False):
+def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=False, write_numbers_list=False, check_is_sorted=False):
     # List of pair (ordered_numbers, elapsed_time)
     results = []
 
@@ -130,7 +149,8 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
     for i, quantity in enumerate(n):
         # Run sort algorithm for each quantity of numbers
         ordered_number, elapsed_time = run_sort_algorithm(sort_type, quantity, data_type, generate_chart, generate_file,
-                                                          "TEST " + str(i) + " - " + sort_name, ChartType.SCATTER, file, True, write_numbers_list)
+                                                          "TEST " + str(i) + " - " + sort_name,
+                                                          ChartType.SCATTER, file, True, write_numbers_list, check_is_sorted)
 
         # Add pair (ordered_numbers, elapsed_time) to results
         results.append((ordered_number, elapsed_time))
@@ -156,5 +176,5 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
     return results
 
 
-def run_all_algorithms(data_type, generate_chart=False, generate_file=False, write_numbers_list=False):
+def run_all_algorithms(data_type, generate_chart=False, generate_file=False, write_numbers_list=False, check_is_sorted=False):
     return

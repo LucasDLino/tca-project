@@ -10,7 +10,7 @@ def create_scatter_chart():
     return fig, ax
 
 
-def add_data_to_scatter_chart(n, elapsed_time, data_type):
+def add_data_to_scatter_chart(n, elapsed_time, data_type, sort_name):
     # Get current figure and axis
     fig, ax = plt.gcf(), plt.gca()
 
@@ -26,7 +26,7 @@ def add_data_to_scatter_chart(n, elapsed_time, data_type):
     ax.set_xscale('log')
 
     # Add title and axis names
-    ax.set_title('Quicksort Algorithm - n = ' + str(n) + ' numbers')
+    ax.set_title(sort_name + ' Algorithm - n = ' + str(n) + ' numbers')
 
     ax.set_xlabel('Quantity of Numbers')
     ax.set_ylabel('Time (seconds)')
@@ -90,12 +90,12 @@ def show_scatter_chart():
     return
 
 
-def generate_scatter_chart(n, data_type, elapsed_time):
+def generate_scatter_chart(n, data_type, elapsed_time, sort_name):
     # Create empty figure
     create_scatter_chart()
 
     # Add data to figure
-    add_data_to_scatter_chart(n, elapsed_time, data_type)
+    add_data_to_scatter_chart(n, elapsed_time, data_type, sort_name)
 
     # Show figure
     show_scatter_chart()
