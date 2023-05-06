@@ -141,10 +141,13 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
     # Name of sort algorithm
     sort_name = get_sort_type_name(sort_type)
 
+    # Data type name
+    data_type_name = get_random_float_type_name(data_type)
+
     # Create file to write results
     file = None
     if generate_file:
-        file = create_file("all", data_type, sort_name)
+        file = create_file("all", data_type_name, sort_name)
 
     # Create figure to generate chart
     if generate_chart:
@@ -152,9 +155,6 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
 
     # List of quantity of numbers
     n = [100, 1000, 10000, 100000, 1000000]
-
-    # Data type name
-    data_type_name = get_random_float_type_name(data_type)
 
     # Loop through quantity of numbers
     for i, quantity in enumerate(n):
