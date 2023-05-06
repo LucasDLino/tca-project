@@ -11,9 +11,9 @@ def main():
     # sort_tests.single_test(SortType.QUICKSORT, 100000, sort_tests.dataType.RANDOM_REVERSED_ORDERED, generate_chart=True, generate_file=True,
     #                        write_numbers_list=False, check_is_sorted=True)
 
-    # Tests for Selection Sort
-    sort_tests.all_data_type_tests(SortType.SELECTION)
-    sort_tests.all_sizes_tests(SortType.SELECTION)
+    # Tests for Insertion Sort
+    sort_tests.all_data_type_tests(SortType.INSERTION)
+    sort_tests.all_sizes_tests(SortType.INSERTION)
 
 
 if __name__ == '__main__':
