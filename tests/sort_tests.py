@@ -26,20 +26,20 @@ def all_data_type_tests(sort_type):
 
 def all_sizes_tests(sort_type):
     # TESTS - Run sort for all sizes of numbers list - Random numbers
-    sort_engine.run_all_sizes(sort_type, data_type=dataType.RANDOM, generate_chart=True, generate_file=False,
+    sort_engine.run_all_sizes(sort_type, data_type=dataType.RANDOM, generate_chart=True, generate_file=True,
                               write_numbers_list=False, check_is_sorted=True)
 
     # TESTS - Run sort for all sizes of numbers list - Random with repeated numbers
     sort_engine.run_all_sizes(sort_type, data_type=dataType.RANDOM_WITH_REPEATED, generate_chart=True,
-                              generate_file=False, write_numbers_list=False)
+                              generate_file=True, write_numbers_list=False)
 
     # TESTS - Run sort for all sizes of numbers list - Random ordered
     sort_engine.run_all_sizes(sort_type, data_type=dataType.RANDOM_ORDERED, generate_chart=True,
-                              generate_file=False, write_numbers_list=False)
+                              generate_file=True, write_numbers_list=False)
 
     # TESTS - Run sort for all sizes of numbers list - Random reversed ordered
     sort_engine.run_all_sizes(sort_type, data_type=dataType.RANDOM_REVERSED_ORDERED, generate_chart=True,
-                              generate_file=False, write_numbers_list=False)
+                              generate_file=True, write_numbers_list=False)
 
 
 def single_test(sort_type, size, data_type, generate_chart=True, generate_file=False,

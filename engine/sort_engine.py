@@ -153,6 +153,9 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
     # List of quantity of numbers
     n = [100, 1000, 10000, 100000, 1000000]
 
+    # Data type name
+    data_type_name = get_random_float_type_name(data_type)
+
     # Loop through quantity of numbers
     for i, quantity in enumerate(n):
         # Run sort algorithm for each quantity of numbers
@@ -165,7 +168,7 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
 
     if generate_chart:
         # Corrections chart
-        title = sort_name + " - " + get_random_float_type_name(data_type) + " - All quantity of numbers"
+        title = sort_name + " - " + data_type_name + " - All quantity of numbers"
         set_title_to_scatter_chart(title)
 
         not_show_legend_to_scatter_chart()
@@ -174,7 +177,7 @@ def run_all_sizes(sort_type, data_type, generate_chart=False, generate_file=Fals
 
         add_line_to_scatter_chart()
 
-        save_chart(get_chart_type_name(ChartType.SCATTER), "all", data_type, sort_name)
+        save_chart(get_chart_type_name(ChartType.SCATTER), "all", data_type_name, sort_name)
 
         # Show scatter chart
         show_scatter_chart()
