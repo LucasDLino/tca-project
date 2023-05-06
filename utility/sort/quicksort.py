@@ -33,9 +33,13 @@ def quicksort(numbers):
     return numbers, elapsed_time
 
 
-def quicksort_implementation(numbers, low, high):
+def quicksort_implementation(numbers, low, high, middle_pivot=False):
     if high <= low:
         return
+
+    if middle_pivot:
+        # Middle pivot
+        numbers[low], numbers[(low + high) // 2] = numbers[(low + high) // 2], numbers[low]
 
     v = numbers[low]  # pivot value
 

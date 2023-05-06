@@ -4,12 +4,12 @@ from ..data_generator.random_floats_type import get_random_float_type_name
 from collections import Counter
 
 
-def create_file(n, data_type):
+def create_file(n, data_type_name, sort_name):
     # Date
     date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     # Create file name
-    file_name = "numbers=" + str(n) + "_data_type=" + str(data_type) + "_date=" + date + ".txt"
+    file_name = "sort=" + sort_name + "_numbers=" + str(n) + "_data_type=" + data_type_name + "_date=" + date + ".txt"
 
     # Create backup folder if it doesn't exist
     if not os.path.exists("backup"):
