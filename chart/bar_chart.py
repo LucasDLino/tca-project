@@ -32,7 +32,7 @@ def add_data_to_bar_chart(n, elapsed_time, data_type, sort_name):
     # Add legend
     ax.legend(fontsize=8)
 
-    return
+    return fig
 
 
 def set_title_to_bar_chart(title):

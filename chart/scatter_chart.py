@@ -52,9 +52,6 @@ def add_line_to_scatter_chart():
     # Add a line connecting all data points
     ax.plot(x_data, y_data, linestyle='--', color='gray')
 
-    # Show the plot
-    plt.show()
-
 
 def set_title_to_scatter_chart(title):
     # Get current axis

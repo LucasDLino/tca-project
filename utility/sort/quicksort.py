@@ -9,7 +9,7 @@ def quicksort(numbers):
     print("start_time: ", start_time)
 
     try:
-        quicksort_implementation(numbers, 0, len(numbers) - 1)
+        quicksort_implementation(numbers, 0, len(numbers) - 1, middle_pivot=True)
     except RecursionError:
         # Raise alert
         print("RecursionError: maximum recursion depth exceeded while calling a Python object", "\n")
@@ -70,7 +70,7 @@ def quicksort_implementation(numbers, low, high, middle_pivot=False):
     numbers[low], numbers[j] = numbers[j], numbers[low]
 
     # Sort left partition
-    quicksort_implementation(numbers, low, j - 1)
+    quicksort_implementation(numbers, low, j - 1, middle_pivot)
 
     # Sort right partition
-    quicksort_implementation(numbers, j + 1, high)
+    quicksort_implementation(numbers, j + 1, high, middle_pivot)
