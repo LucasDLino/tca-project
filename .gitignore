@@ -161,4 +161,7 @@ cython_debug/
 
 # User-specific files
 /backup
-*.svg
+/Insertion-figs
+/Quicksort-figs
+/Selection-figs
+/Mergesort-figs
