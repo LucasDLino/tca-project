@@ -1,0 +1,55 @@
+### --- TEST 0 - Quicksort --- 100 numbers - Data Type: Random with repeated - Generated at: 2023-05-06 22:54:32 --- ###
+
+Numbers: List of numbers has been omitted. It contains 100 numbers.
+
+Repeated numbers: List of repeated numbers has been omitted. It contains 27 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.0 seconds
+
+
+### --- TEST 1 - Quicksort --- 1000 numbers - Data Type: Random with repeated - Generated at: 2023-05-06 22:54:32 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000 numbers.
+
+Repeated numbers: List of repeated numbers has been omitted. It contains 266 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.000997304916381836 seconds
+
+
+### --- TEST 2 - Quicksort --- 10000 numbers - Data Type: Random with repeated - Generated at: 2023-05-06 22:54:32 --- ###
+
+Numbers: List of numbers has been omitted. It contains 10000 numbers.
+
+Repeated numbers: List of repeated numbers has been omitted. It contains 2672 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.013998985290527344 seconds
+
+
+### --- TEST 3 - Quicksort --- 100000 numbers - Data Type: Random with repeated - Generated at: 2023-05-06 22:54:32 --- ###
+
+Numbers: List of numbers has been omitted. It contains 100000 numbers.
+
+Repeated numbers: List of repeated numbers has been omitted. It contains 26514 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.17335104942321777 seconds
+
+
+### --- TEST 4 - Quicksort --- 1000000 numbers - Data Type: Random with repeated - Generated at: 2023-05-06 22:54:32 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Repeated numbers: List of repeated numbers has been omitted. It contains 264475 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 2.5244829654693604 seconds
+
+

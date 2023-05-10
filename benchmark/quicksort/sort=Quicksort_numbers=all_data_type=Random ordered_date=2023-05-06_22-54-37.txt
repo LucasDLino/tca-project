@@ -1,0 +1,45 @@
+### --- TEST 0 - Quicksort --- 100 numbers - Data Type: Random ordered - Generated at: 2023-05-06 22:54:37 --- ###
+
+Numbers: List of numbers has been omitted. It contains 100 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.0 seconds
+
+
+### --- TEST 1 - Quicksort --- 1000 numbers - Data Type: Random ordered - Generated at: 2023-05-06 22:54:37 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.001004934310913086 seconds
+
+
+### --- TEST 2 - Quicksort --- 10000 numbers - Data Type: Random ordered - Generated at: 2023-05-06 22:54:37 --- ###
+
+Numbers: List of numbers has been omitted. It contains 10000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.007996320724487305 seconds
+
+
+### --- TEST 3 - Quicksort --- 100000 numbers - Data Type: Random ordered - Generated at: 2023-05-06 22:54:37 --- ###
+
+Numbers: List of numbers has been omitted. It contains 100000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.1327838897705078 seconds
+
+
+### --- TEST 4 - Quicksort --- 1000000 numbers - Data Type: Random ordered - Generated at: 2023-05-06 22:54:37 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 1.6519651412963867 seconds
+
+

@@ -1,0 +1,38 @@
+### --- TEST 0 - Insertion --- 1000000 numbers - Data Type: Random - Generated at: 2023-05-06 22:57:50 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 36231.81675052643 seconds
+
+
+### --- TEST 1 - Insertion --- 1000000 numbers - Data Type: Random with repeated - Generated at: 2023-05-07 09:01:42 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Repeated numbers: List of repeated numbers has been omitted. It contains 264750 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 35853.188240766525 seconds
+
+
+### --- TEST 2 - Insertion --- 1000000 numbers - Data Type: Random ordered - Generated at: 2023-05-07 18:59:17 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.17189288139343262 seconds
+
+
+### --- TEST 3 - Insertion --- 1000000 numbers - Data Type: Random reversed ordered - Generated at: 2023-05-07 18:59:18 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 93522.80045318604 seconds
+
+

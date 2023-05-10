@@ -1,0 +1,45 @@
+### --- TEST 0 - Insertion --- 100 numbers - Data Type: Random reversed ordered - Generated at: 2023-05-08 04:46:01 --- ###
+
+Numbers: List of numbers has been omitted. It contains 100 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.0 seconds
+
+
+### --- TEST 1 - Insertion --- 1000 numbers - Data Type: Random reversed ordered - Generated at: 2023-05-08 04:46:01 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 0.04599261283874512 seconds
+
+
+### --- TEST 2 - Insertion --- 10000 numbers - Data Type: Random reversed ordered - Generated at: 2023-05-08 04:46:01 --- ###
+
+Numbers: List of numbers has been omitted. It contains 10000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 4.965722322463989 seconds
+
+
+### --- TEST 3 - Insertion --- 100000 numbers - Data Type: Random reversed ordered - Generated at: 2023-05-08 04:46:06 --- ###
+
+Numbers: List of numbers has been omitted. It contains 100000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 533.352424621582 seconds
+
+
+### --- TEST 4 - Insertion --- 1000000 numbers - Data Type: Random reversed ordered - Generated at: 2023-05-08 04:55:00 --- ###
+
+Numbers: List of numbers has been omitted. It contains 1000000 numbers.
+
+Algorithm successfully sorted the list of numbers.
+
+Execution time: 98029.86489748955 seconds
+
+
