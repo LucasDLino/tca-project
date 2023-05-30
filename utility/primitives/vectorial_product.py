@@ -14,7 +14,9 @@ def compute_vectorial_product(u, v):
 def get_convex_angle(u, v):
     # Compute pseudo angles - show with 4 decimal places
     pseudo_angle_u = pseudo_angle.compute_pseudo_angle(u[0], u[1])
+    print("pseudo_angle_u: %.4f" % pseudo_angle_u)
     pseudo_angle_v = pseudo_angle.compute_pseudo_angle(v[0], v[1])
+    print("pseudo_angle_v: %.4f" % pseudo_angle_v, "\n")
 
     # Compute convex angle
     convex_angle = abs(pseudo_angle_u - pseudo_angle_v)
@@ -24,14 +26,19 @@ def get_convex_angle(u, v):
     if (pseudo_angle_u > 7 and pseudo_angle_v < pseudo_angle_u - 4) or (pseudo_angle_v > 7 and pseudo_angle_u < pseudo_angle_v - 4):
         convex_angle = 8 - convex_angle
 
+    print("convex_angle: %.4f" % convex_angle, "\n")
+
     return convex_angle
 
 
 def check_vectorial_product(u, v, w):
     # Compute vector product
     vector_product_uv = compute_vectorial_product(u, v)
+    print("vector_product_uv: ", vector_product_uv)
     vector_product_uw = compute_vectorial_product(u, w)
+    print("vector_product_uw: ", vector_product_uw)
     vector_product_vw = compute_vectorial_product(v, w)
+    print("vector_product_vw: ", vector_product_vw, "\n")
 
     convex_angle = get_convex_angle(u, v)
 
@@ -51,19 +58,21 @@ def check_vectorial_product(u, v, w):
 
 
 if __name__ == "__main__":
-    # Check if the correct number of arguments is provided
-    if len(sys.argv) != 7:
-        print("Usage: python script.py u0 u1 v0 v1 w0 w1")
-        sys.exit(1)
+    # Default values
+    u_vec = [1, 0.5]
+    v_vec = [1, -0.5]
+    w_vec = [2, 0.5]
 
-    # Parse the command-line arguments
-    u_vec = [float(sys.argv[1]), float(sys.argv[2])]
-    v_vec = [float(sys.argv[3]), float(sys.argv[4])]
-    w_vec = [float(sys.argv[5]), float(sys.argv[6])]
+    # Check if the correct number of arguments is provided
+    if len(sys.argv) == 7:
+        # Parse the command-line arguments
+        u_vec = [float(sys.argv[1]), float(sys.argv[2])]
+        v_vec = [float(sys.argv[3]), float(sys.argv[4])]
+        w_vec = [float(sys.argv[5]), float(sys.argv[6])]
 
     # Vectors
-    print("u: ", u_vec, "\n")
-    print("v: ", v_vec, "\n")
+    print("u: ", u_vec)
+    print("v: ", v_vec)
     print("w: ", w_vec, "\n")
 
     # Call the check_vectorial_product function
