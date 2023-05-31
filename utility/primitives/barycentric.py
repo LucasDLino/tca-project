@@ -52,7 +52,6 @@ def compute_barycentric_coords(vertices, point):
 
     return barycentric_coord_a, barycentric_coord_b, barycentric_coord_c
 
-
 def get_location_of_point_in_triangle(vertices, point):
     # Get location of a point in a triangle
 
@@ -76,6 +75,20 @@ def get_location_of_point_in_triangle(vertices, point):
         return "The point p = (%.2f, %.2f) is on the edge between vertex p1 and p2" % (point[0], point[1])
     else:
         return "The point p = (%.2f, %.2f) is outside the triangle" % (point[0], point[1])
+
+def check_disjoint_triangles(triangle1_vertices, triangle2_vertices):
+    # check if two triangles are disjoint.
+
+    for i in range(0,3):
+        barycentric_coords = compute_barycentric_coords(triangle1_vertices, triangle2_vertices[i])
+        # if any point vertice of triangle 2 is inside or on the edge of triangle 1, return false
+        if barycentric_coords[0] >= 0 and barycentric_coords[1] >= 0 and barycentric_coords[2] >=0:
+            return False;
+    # if none of the triangle2_vertices are inside or on the edge of triangle 1, return true
+    return True;
+
+
+
 
 
 if __name__ == "__main__":
