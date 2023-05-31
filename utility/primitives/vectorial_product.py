@@ -1,7 +1,6 @@
 import sys
 import pseudo_angle
 
-
 def compute_vectorial_product(u, v):
     # Compute vectorial product between u and v
 
@@ -30,6 +29,40 @@ def get_convex_angle(u, v):
 
     return convex_angle
 
+
+def get_vector(point_i, point_j):
+     # returns a vector ij.
+     return [point_j[0] - point_i[0], point_j[1] - point_i[1]]
+
+def check_convex_polygon(list_of_points):
+    # checks whether the ordered list of points form a convex polygon or not.
+
+    number_of_edges = len(list_of_points)
+    # if it has less than three points, it cant form a polygon. return false;
+    if number_of_edges < 3:
+            return False
+    # if it has less than three points, it is a line or a triangle. return true
+    if number_of_edges == 3:
+        return True
+    # start getting the last edge and the first, so the code is more organized
+    u = get_vector(list_of_points[-2], list_of_points[-1])
+    v = get_vector(list_of_points[-1], list_of_points[0])
+
+    # get the initial orientation
+    orientation=compute_vectorial_product(u, v)
+
+    for i in range(0, number_of_edges-1):
+        # u turns into the old v edge
+        u = v
+        # v turns into the next edge
+        v = get_vector(list_of_points[i], list_of_points[i+1])
+        new_orientation = compute_vectorial_product(u,v)
+        # returns false if the orientation changes at any moment
+        if new_orientation* orientation < 0:
+            return False
+
+    # if the orientation has not changed after checking all vertices, the polynom is convex.
+    return True
 
 def check_vectorial_product(u, v, w):
     # Compute vector product
