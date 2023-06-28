@@ -102,3 +102,20 @@ if __name__ == "__main__":
     # If False, we did not find a convex vertex
     else:
         print("Did not find convex vertex")
+
+    # Other complex polygon
+    other_polygon = [(1, 1), (2, 3), (4, 2), (3, 1), (5, 4), (6, 3), (7, 2), (6, 1), (4, 4), (2, 5)]
+
+    list_indexes_to_check = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+
+    # Loop through indexes to check
+    for index in list_indexes_to_check:
+        # Find convex vertex
+        convex_vertex = find_convex_vertex(other_polygon, index)
+
+        # If True, we found a convex vertex
+        if convex_vertex:
+            print("Found convex vertex for point: " + str(other_polygon[index]))
+        # If False, we did not find a convex vertex
+        else:
+            print("Did not find convex vertex for point: " + str(other_polygon[index]))
