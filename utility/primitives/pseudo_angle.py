@@ -43,10 +43,13 @@ def compute_pseudo_angle(x, y):
 
     return pseudo_angle
 
+def compute_pseudo_angle_with_vector(vector):
+    print(vector)
+    return compute_pseudo_angle(vector[0], vector[1])
 
-if __name__ == '__main__':
-    # Get x and y values from command line arguments
-    x_coord = float(sys.argv[1])
-    y_coord = float(sys.argv[2])
+# if __name__ == '__main__':
+#     # Get x and y values from command line arguments
+#     x_coord = float(sys.argv[1])
+#     y_coord = float(sys.argv[2])
 
-    get_pseudo_angle(x_coord, y_coord)
+#     get_pseudo_angle(x_coord, y_coord)
