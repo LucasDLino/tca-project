@@ -97,8 +97,8 @@ edges = {
         "pcw": "a5"
     }}
 
-def get_face_vertices(face):
 
+def get_face_vertices(face):
     # Retrieve the initial face from the faces dictionary
     initial_face = faces[face]
     current_face = initial_face
@@ -139,10 +139,9 @@ def get_face_vertices(face):
     return found_vertices
 
 
-
 def get_adjacent_vertices(vertex):
     adjacent_vertices = []
-    
+
     # Iterate through each edge in the edges dictionary
     for edge_value in edges.values():
 
@@ -157,10 +156,9 @@ def get_adjacent_vertices(vertex):
 
             # If it is, add the first endpoint to the adjacent_vertices list
             adjacent_vertices.append(edge_value['v1'])
-    
+
     # Return the adjacent vertices
     return adjacent_vertices
-
 
 
 print(get_face_vertices("F5"))
