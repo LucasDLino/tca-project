@@ -26,4 +26,13 @@ def selection(numbers):
 
 
 def selection_implementation(numbers):
-    return
+
+    list_length = len(numbers)
+    for i in range(0, list_length-1):
+        m = i
+        for j in range(i+1, list_length):
+            if numbers[j] < numbers[m]:
+                m = j
+        numbers[i], numbers[m] = numbers[m], numbers[i]
+
+    return numbers

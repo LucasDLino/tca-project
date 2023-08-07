@@ -17,10 +17,12 @@ def add_data_to_scatter_chart(n, elapsed_time, data_type, sort_name):
     markers = ["o", "v", "^", "<", ">", "s", "p", "*", "h", "H", "D"]
 
     # Add data to figure
-    ax.plot(n, elapsed_time, marker=random.choice(markers), markersize=7, label=get_random_float_type_name(data_type))
+    ax.plot(n, elapsed_time, marker=random.choice(markers),
+            markersize=7, label=get_random_float_type_name(data_type))
 
     # Show text for this point
-    ax.annotate(f"t = {elapsed_time:.3f}s", (n, elapsed_time), xytext=(n, elapsed_time), textcoords='data', ha='left', va='bottom', fontsize=8)
+    ax.annotate(f"t = {elapsed_time:.3f}s", (n, elapsed_time), xytext=(
+        n, elapsed_time), textcoords='data', ha='left', va='bottom', fontsize=8)
 
     # Scale x axis to log
     ax.set_xscale('log')
@@ -59,7 +61,6 @@ def set_title_to_scatter_chart(title):
 
     # Set title
     ax.set_title(title)
-    return
 
 
 def not_show_legend_to_scatter_chart():
@@ -68,7 +69,6 @@ def not_show_legend_to_scatter_chart():
 
     # Remove legend
     ax.legend().remove()
-    return
 
 
 def set_ticks_scientific_limits_to_scatter_chart(limit):
@@ -77,14 +77,11 @@ def set_ticks_scientific_limits_to_scatter_chart(limit):
 
     # Set ticks scientific limits
     ax.ticklabel_format(style='sci', axis='x', scilimits=(limit, limit))
-    return
 
 
 def show_scatter_chart():
     # Show figure
     plt.show()
-
-    return
 
 
 def generate_scatter_chart(n, data_type, elapsed_time, sort_name):
@@ -96,5 +93,3 @@ def generate_scatter_chart(n, data_type, elapsed_time, sort_name):
 
     # Show figure
     show_scatter_chart()
-
-    return

@@ -9,22 +9,25 @@ def create_file(n, data_type_name, sort_name):
     date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
     # Create file name
-    file_name = "sort=" + sort_name + "_numbers=" + str(n) + "_data_type=" + data_type_name + "_date=" + date + ".txt"
+    file_name = "sort=" + sort_name + "_numbers=" + \
+        str(n) + "_data_type=" + data_type_name + "_date=" + date + ".txt"
 
     # Create backup folder if it doesn't exist
     if not os.path.exists("backup"):
         os.makedirs("backup")
 
     # Create file in backup folder, and if it doesn't exist, create it
-    file = open(os.path.join("backup", file_name), "w+")
+    file_data = open(os.path.join("backup", file_name), "w+")
 
-    return file
+    return file_data
 
 
 def write_title(file, test_name, n, data_type, date):
     if file is not None:
         file.write(
-            "### --- " + test_name + " --- " + str(n) + " numbers - Data Type: " + get_random_float_type_name(data_type)
+            "### --- " + test_name + " --- " +
+            str(n) + " numbers - Data Type: " +
+            get_random_float_type_name(data_type)
             + " - Generated at: " + date + " --- ###\n\n")
 
 
@@ -48,10 +51,12 @@ def write_numbers(file, numbers, write_numbers_list=False, write_repeated=False)
                 file.write("Repeated numbers: " + str(repeated) + "\n\n")
         else:
             # Write just the quantity of numbers
-            file.write("Numbers: List of numbers has been omitted. It contains " + str(len(numbers)) + " numbers.\n\n")
+            file.write("Numbers: List of numbers has been omitted. It contains " +
+                       str(len(numbers)) + " numbers.\n\n")
 
             if write_repeated:
-                file.write("Repeated numbers: List of repeated numbers has been omitted. It contains " + str(len(repeated)) + " numbers.\n\n")
+                file.write("Repeated numbers: List of repeated numbers has been omitted. It contains " +
+                           str(len(repeated)) + " numbers.\n\n")
 
 
 def write_is_sorted(file, is_sorted):
