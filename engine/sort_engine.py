@@ -6,6 +6,7 @@ from utility.sort.mergesort import mergesort
 from utility.writer.sort_results_writer_txt import *
 from chart.chart_factory import *
 from utility.sort.sort_type import *
+from utility.hpc_sort.hpc_sort import hpc_sort
 
 
 def is_sorted(numbers):
@@ -31,7 +32,7 @@ def get_sort_algorithm(sort_type):
 
 
 def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate_file=False, test_name="", chart_type=0,
-                       file_data=None, running_all=False, write_numbers_list=False, check_is_sorted=False):
+                       file_data=None, running_all=False, write_numbers_list=False, check_is_sorted=False, is_multithreading=False):
     # Getting sort algorithm
     sort_algorithm = get_sort_algorithm(sort_type)
 
@@ -65,7 +66,10 @@ def run_sort_algorithm(sort_type, n, data_type=0, generate_chart=False, generate
     write_numbers(file_data, numbers, write_numbers_list, write_repeated)
 
     # Use selected sort algorithm to sort list of numbers
-    ordered_numbers, elapsed_time = sort_algorithm(numbers)
+    if (is_multithreading == False): 
+        ordered_numbers, elapsed_time = sort_algorithm(numbers)
+    else:
+        ordered_numbers, elapsed_time = hpc_sort(sort_algorithm, numbers)
 
     # Check if list is sorted
     if check_is_sorted:
