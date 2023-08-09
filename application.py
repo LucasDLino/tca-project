@@ -16,12 +16,12 @@ def main():
     # sort_tests.all_sizes_tests(SortType.INSERTION)
 
     # Tests for Selection Sort
-    sort_tests.all_data_type_tests(SortType.SELECTION)
+    # sort_tests.all_data_type_tests(SortType.SELECTION)
     # sort_tests.all_sizes_tests(SortType.SELECTION)
 
     # Tests for MergeSort
     # sort_tests.all_data_type_tests(SortType.MERGESORT)
-    # sort_tests.all_sizes_tests(SortType.MERGESORT)
+     sort_tests.all_sizes_tests(SortType.MERGESORT)
 
 
 if __name__ == '__main__':
