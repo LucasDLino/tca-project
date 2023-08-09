@@ -43,8 +43,8 @@ def all_sizes_tests(sort_type):
 
 
 def single_test(sort_type, size, data_type, generate_chart=True, generate_file=False,
-                write_numbers_list=False, check_is_sorted=False):
+                write_numbers_list=False, check_is_sorted=False, is_multithreading=False):
     # SINGLE TEST - for specific size and data type
     sort_engine.run_sort_algorithm(sort_type, size, data_type, generate_chart, generate_file, "TEST - n = " + str(size) +
                                    " - " + sort_engine.get_sort_type_name(sort_type), sort_engine.ChartType.BAR,
-                                   None, False, write_numbers_list, check_is_sorted)
+                                   None, False, write_numbers_list, check_is_sorted, is_multithreading)
