@@ -1,16 +1,13 @@
 import sys
-root_path = 'C:\\Users\\chris\\OneDrive\\Área de Trabalho\\Mestrado\\Período 1\\Técnicas Computacionais Avançadas\\Tca\\tca-project'
-sys.path.insert(0, root_path)
+# root_path = 'C:\\Users\\chris\\OneDrive\\Área de Trabalho\\Mestrado\\Período 1\\Técnicas Computacionais Avançadas\\Tca\\tca-project'
+# sys.path.insert(0, root_path)
 
 from mpi4py import MPI
-from utility.data_generator.random_floats import generate_numbers
-from utility.sort.mergesort import mergesort
-# from engine.sort_engine import get_sort_algorithm
 import heapq
 import time
 
-def merge_local_results(sorted_parts):
 
+def merge_local_results(sorted_parts):
     # create a priority queue for the merging
     priority_queue = []
 
@@ -22,8 +19,7 @@ def merge_local_results(sorted_parts):
             # Add the first element of each sorted part to the priority queue
             heapq.heappush(priority_queue, (part[0], i, 0))
 
-
-    # merges the elements while the priority queue isnt empty
+    # merges the elements while the priority queue isn't empty
     while priority_queue:
         # remove the element with minimum value within the priority queue
         value, part_idx, element_idx = heapq.heappop(priority_queue)
@@ -40,9 +36,7 @@ def merge_local_results(sorted_parts):
     return sorted_result
 
 
-
-def hpc_sort(sort_algorithm, numbers = []):
-
+def hpc_sort(sort_algorithm, numbers=[]):
     # set the timer to get total elapsed time
     start_total = time.time()
 
@@ -57,7 +51,6 @@ def hpc_sort(sort_algorithm, numbers = []):
     rank = comm.Get_rank()
     size = comm.Get_size()
 
-    
     # divide the data in local lists using scatter
     local_data = []
     if rank == 0:
@@ -80,7 +73,7 @@ def hpc_sort(sort_algorithm, numbers = []):
     # scatter the local data to all processes
     local_data = comm.scatter(local_data, root=0)
 
-   # start local sort clock
+    # start local sort clock
     start_local_sort = time.time()
 
     # do local sorting
@@ -94,7 +87,7 @@ def hpc_sort(sort_algorithm, numbers = []):
 
     ellapsed_local_sort_time = end_local_sort - start_local_sort
 
-    print('Tempo decorrido na thread ' + rank + ':', ellapsed_local_sort_time)
+    print('Tempo decorrido na thread ' + str(rank) + ':', ellapsed_local_sort_time)
 
     # in the main branch, merge the results within each local_sorted array
     if rank == 0:
@@ -113,6 +106,6 @@ def hpc_sort(sort_algorithm, numbers = []):
         print("\nTempo de mesclagem paralela:", end_merge_results - start_merge_results)
 
         return result, ellapsed_time
-    
+
     # for each branch, return the locally sorted data and the ellapsed time within it.
     return local_sorted, ellapsed_local_sort_time
